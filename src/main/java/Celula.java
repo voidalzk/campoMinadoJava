@@ -60,7 +60,7 @@ public class Celula extends JButton {
                 setIcon(ICON_MINA);
                 setBackground(Color.RED);
                 JOptionPane.showMessageDialog(this, "Você perdeu!");
-                // Aqui você pode adicionar lógica para encerrar o jogo ou reiniciar
+                // Fazer lógica do jogo reiniciar
             } else {
                 setBackground(Color.WHITE);
                 setEnabled(false);

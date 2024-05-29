@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 
+//Estilizar o painel e tentar deixar parecido com o jogo original MineSweeper = Campo Minado
+
 public class CampoMinado extends JFrame {
     private MinaPainel minaPainel;
     private Temporizador temporizador;
