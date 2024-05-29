@@ -43,8 +43,7 @@ public class Celula extends JButton {
     }
 
     public void setTexto(String texto) {
-        setText(texto);
-        setForeground(obterCor(texto));
+        setIcon(obterImagem(texto));
     }
 
     private void marcar() {
@@ -69,17 +68,17 @@ public class Celula extends JButton {
         }
     }
 
-    private Color obterCor(String texto) {
+    private Icon obterImagem(String texto) {
         switch (texto) {
-            case "1": return Color.BLUE;
-            case "2": return Color.GREEN;
-            case "3": return Color.RED;
-            case "4": return Color.MAGENTA;
-            case "5": return Color.ORANGE;
-            case "6": return Color.CYAN;
-            case "7": return Color.BLACK;
-            case "8": return Color.GRAY;
-            default: return Color.BLACK;
+            case "1": return new ImageIcon(Celula.class.getResource("/imgs/numbers/one.png"));
+            case "2": return new ImageIcon(Celula.class.getResource("/imgs/numbers/two.png"));
+            case "3": return new ImageIcon(Celula.class.getResource("/imgs/numbers/three.png"));
+            case "4": return new ImageIcon(Celula.class.getResource("/imgs/numbers/four.png"));
+            case "5": return new ImageIcon(Celula.class.getResource("/imgs/numbers/five.png"));
+            case "6": return new ImageIcon(Celula.class.getResource("/imgs/numbers/six.png"));
+            case "7": return new ImageIcon(Celula.class.getResource("/imgs/numbers/seven.png"));
+            case "8": return new ImageIcon(Celula.class.getResource("/imgs/numbers/eight.png"));
+            default: return null;
         }
     }
 }

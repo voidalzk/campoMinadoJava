@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class CampoMinado extends JFrame {
     private MinaPainel minaPainel;
+    private Temporizador temporizador;
     private final int LARGURA = 800;
     private final int ALTURA = 600;
 
@@ -10,6 +11,9 @@ public class CampoMinado extends JFrame {
         setTitle("Campo Minado");
         setSize(LARGURA, ALTURA);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        temporizador = new Temporizador(2);
+        add(temporizador, BorderLayout.NORTH);
 
         minaPainel = new MinaPainel(9, 9, 10);
         add(minaPainel, BorderLayout.CENTER);
