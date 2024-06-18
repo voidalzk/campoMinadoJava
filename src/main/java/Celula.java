@@ -53,14 +53,27 @@ public class Celula extends JButton {
         }
     }
 
+    private void derrota() {
+        setIcon(ICON_MINA);
+        setBackground(Color.RED);
+        JOptionPane.showMessageDialog(this, "Você perdeu!");
+    }
+
+    private void reiniciar() {
+        temMina = false;
+        marcada = false;
+        aberta = false;
+        setIcon(null);
+        setBackground(Color.LIGHT_GRAY);
+        setEnabled(true);
+    }
+
     private void abrir() {
         if (!marcada) {
             aberta = true;
             if (temMina) {
-                setIcon(ICON_MINA);
-                setBackground(Color.RED);
-                JOptionPane.showMessageDialog(this, "Você perdeu!");
-                // Fazer lógica do jogo reiniciar
+                derrota();
+                reiniciar();
             } else {
                 setBackground(Color.WHITE);
                 setEnabled(false);
