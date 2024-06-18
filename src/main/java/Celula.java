@@ -22,7 +22,11 @@ public class Celula extends JButton {
         setFont(new Font("Arial", Font.BOLD, 20));
         setBackground(Color.LIGHT_GRAY);
 
-        addMouseListener(new MouseAdapter() {
+        addMouseListener(createMouseAdapter());
+    }
+
+    private MouseAdapter createMouseAdapter() {
+        return new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (SwingUtilities.isRightMouseButton(e)) {
@@ -31,7 +35,7 @@ public class Celula extends JButton {
                     abrir();
                 }
             }
-        });
+        };
     }
 
     public boolean temMina() {
