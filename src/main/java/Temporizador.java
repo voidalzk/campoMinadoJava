@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 public class Temporizador extends JPanel {
     private int contador = 0;
     private JLabel[] digitosLabels;
+    private Timer temporizador;
 
     public Temporizador(int numDigitos) {
         setLayout(new FlowLayout()); // Altere para FlowLayout
@@ -15,7 +16,7 @@ public class Temporizador extends JPanel {
             add(digitosLabels[i]);
         }
 
-        Timer temporizador = new Timer(1000, new ActionListener() {
+        temporizador = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 contador++;
@@ -25,11 +26,10 @@ public class Temporizador extends JPanel {
                 }
             }
         });
-        temporizador.start();
     }
 
-    private ImageIcon getIconeImagem(String digito) {
-        return new ImageIcon(Temporizador.class.getResource("/imgs/timer/" + digito + ".png"));
+    public void stop() {
+        temporizador.stop();
     }
 
     public void reset() {
@@ -39,7 +39,7 @@ public class Temporizador extends JPanel {
         }
     }
 
-    public void stop() {
-        temporizador.stop();
+    private ImageIcon getIconeImagem(String digito) {
+        return new ImageIcon(Temporizador.class.getResource("/imgs/timer/" + digito + ".png"));
     }
 }

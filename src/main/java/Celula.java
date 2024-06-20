@@ -1,3 +1,5 @@
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,16 +10,18 @@ public class Celula extends JButton {
     private boolean temMina;
     private boolean marcada;
     private boolean aberta;
+    private Temporizador temporizador;
 
     private static final Icon ICON_MINA = new ImageIcon(Celula.class.getResource("/imgs/mine.png"));
     private static final Icon ICON_BANDEIRA = new ImageIcon(Celula.class.getResource("/imgs/flagged.png"));
 
-    public Celula(int linha, int coluna) {
+    public Celula(int linha, int coluna, Temporizador temporizador) {
         this.linha = linha;
         this.coluna = coluna;
         this.temMina = false;
         this.marcada = false;
         this.aberta = false;
+        this.temporizador = temporizador;
 
         setFont(new Font("Arial", Font.BOLD, 20));
         setBackground(Color.LIGHT_GRAY);
