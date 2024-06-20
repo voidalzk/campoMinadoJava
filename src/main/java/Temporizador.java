@@ -31,4 +31,15 @@ public class Temporizador extends JPanel {
     private ImageIcon getIconeImagem(String digito) {
         return new ImageIcon(Temporizador.class.getResource("/imgs/timer/" + digito + ".png"));
     }
+
+    public void reset() {
+        contador = 0;
+        for (JLabel label : digitosLabels) {
+            label.setText("0");
+        }
+    }
+
+    public void stop() {
+        temporizador.stop();
+    }
 }

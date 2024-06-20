@@ -61,6 +61,7 @@ public class Celula extends JButton {
         setIcon(ICON_MINA);
         setBackground(Color.RED);
         JOptionPane.showMessageDialog(this, "Você perdeu!");
+        temporizador.stop();
     }
 
     private void reiniciar() {
@@ -70,6 +71,7 @@ public class Celula extends JButton {
         setIcon(null);
         setBackground(Color.LIGHT_GRAY);
         setEnabled(true);
+        temporizador.reset();
     }
 
     private void abrir() {
