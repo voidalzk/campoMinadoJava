@@ -1,9 +1,6 @@
 
-
 import javax.swing.*;
 import java.awt.*;
-
-//Estilizar o painel e tentar deixar parecido com o jogo original MineSweeper = Campo Minado
 
 public class CampoMinado extends JFrame {
     private MinaPainel minaPainel;
@@ -19,7 +16,7 @@ public class CampoMinado extends JFrame {
         temporizador = new Temporizador(2);
         add(temporizador, BorderLayout.NORTH);
 
-        minaPainel = new MinaPainel(9, 9, 10);
+        minaPainel = new MinaPainel(9, 9, 10, temporizador);
         add(minaPainel, BorderLayout.CENTER);
 
         JMenuBar menuBar = new JMenuBar();
@@ -45,7 +42,7 @@ public class CampoMinado extends JFrame {
 
     private void iniciarJogo(int linhas, int colunas, int minas) {
         remove(minaPainel);
-        minaPainel = new MinaPainel(linhas, colunas, minas);
+        minaPainel = new MinaPainel(linhas, colunas, minas, temporizador);
         add(minaPainel, BorderLayout.CENTER);
         revalidate();
     }
