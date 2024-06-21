@@ -11,9 +11,12 @@ public class Celula extends JButton {
     private boolean aberta;
     private MinaPainel painel;
     private Temporizador temporizador;
+    private Sorriso sorriso;
 
     private static final Icon ICON_MINA = new ImageIcon(Celula.class.getResource("/imgs/mine.png"));
     private static final Icon ICON_BANDEIRA = new ImageIcon(Celula.class.getResource("/imgs/flagged.png"));
+    private static final Icon ICON_COBERTO = new ImageIcon(Celula.class.getResource("/imgs/covered.png"));
+    private static final Icon ICON_ABERTO = new ImageIcon(Celula.class.getResource("/imgs/blank.png"));
 
     public Celula(int linha, int coluna, MinaPainel painel, Temporizador temporizador) {
         this.linha = linha;
@@ -26,6 +29,7 @@ public class Celula extends JButton {
 
         setFont(new Font("Arial", Font.BOLD, 20));
         setBackground(Color.LIGHT_GRAY);
+        setIcon(ICON_COBERTO);
 
         addMouseListener(createMouseAdapter());
     }
@@ -68,6 +72,7 @@ public class Celula extends JButton {
         JOptionPane.showMessageDialog(this, "Você perdeu!");
         temporizador.stop();
         painel.notificarDerrota();
+        sorriso.setDeadSmiley();
     }
 
     private void abrir() {
@@ -78,6 +83,7 @@ public class Celula extends JButton {
             } else {
                 setBackground(Color.WHITE);
                 setEnabled(false);
+                setIcon(ICON_ABERTO);
             }
         }
     }

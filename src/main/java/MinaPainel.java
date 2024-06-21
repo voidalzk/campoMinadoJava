@@ -85,4 +85,18 @@ public class MinaPainel extends JPanel {
         revalidate();
         repaint();
     }
+
+    public void verificarVitoria() {
+        for (int i = 0; i < linhas; i++) {
+            for (int j = 0; j < colunas; j++) {
+                if (!celulas[i][j].temMina() && !celulas[i][j].estaAberta()) {
+                    return;
+                }
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Você venceu!");
+        temporizador.stop();
+        sorriso.setSunglasses();
+    }
+
 }

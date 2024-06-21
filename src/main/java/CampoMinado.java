@@ -7,6 +7,7 @@ public class CampoMinado extends JFrame {
     private Temporizador temporizador;
     private final int LARGURA = 800;
     private final int ALTURA = 600;
+    private Sorriso sorriso;
 
     public CampoMinado() {
         setTitle("Campo Minado");
@@ -15,6 +16,9 @@ public class CampoMinado extends JFrame {
 
         temporizador = new Temporizador(2);
         add(temporizador, BorderLayout.NORTH);
+
+        sorriso = new Sorriso();
+        add(sorriso, BorderLayout.NORTH);
 
         minaPainel = new MinaPainel(9, 9, 10, temporizador);
         add(minaPainel, BorderLayout.CENTER);
@@ -45,9 +49,11 @@ public class CampoMinado extends JFrame {
         minaPainel = new MinaPainel(linhas, colunas, minas, temporizador);
         add(minaPainel, BorderLayout.CENTER);
         revalidate();
+        sorriso.setSmiley();
     }
 
     public static void main(String[] args) {
         new CampoMinado();
     }
+
 }
