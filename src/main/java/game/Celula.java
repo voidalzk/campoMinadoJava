@@ -21,7 +21,7 @@ public class Celula extends JButton {
         this.minasAdjacentes = 0;
 
         setPreferredSize(new Dimension(Tabuleiro.TAMANHO_CELULA, Tabuleiro.TAMANHO_CELULA));
-        setFont(new Font("Arial", Font.PLAIN, 20)); // Define a fonte com tamanho 20 para o texto na célula
+        setFont(new Font("Arial", Font.PLAIN, 20));
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

@@ -7,7 +7,7 @@ import java.awt.event.MouseEvent;
 import java.util.Random;
 
 public class Tabuleiro extends JPanel {
-    public static final int TAMANHO_CELULA = 50; // Aumentado o tamanho da célula
+    public static final int TAMANHO_CELULA = 50;
     public static int larguraTabuleiro;
     public static int alturaTabuleiro;
     public static Celula[][] celulas;

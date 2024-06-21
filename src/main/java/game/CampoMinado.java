@@ -1,3 +1,8 @@
+/*
+NOME: GABRIEL FRANCELINO VOIDALESKI GRR20234966
+NOME: BRUNO BRUGNEROTTO DE LARA GRR20230933
+ */
+
 package game;
 
 import javax.swing.*;
@@ -45,8 +50,8 @@ public class CampoMinado extends JFrame {
         }
         tabuleiro = new Tabuleiro(largura, altura, minas);
         add(tabuleiro);
-        pack(); // Ajusta o tamanho da janela conforme o tamanho do tabuleiro
-        setLocationRelativeTo(null); // Centraliza a janela na tela
+        pack();
+        setLocationRelativeTo(null);
         validate();
     }
 
