@@ -1,17 +1,16 @@
+package game;
+
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class CampoMinado extends JFrame {
-    private static final int TAMANHO_FACIL = 9;
-    private static final int TAMANHO_MEDIO = 16;
-    private static final int LARGURA_DIFICIL = 30;
-    private static final int ALTURA_DIFICIL = 16;
+    public static final int TAMANHO_FACIL = 9;
+    public static final int TAMANHO_MEDIO = 16;
+    public static final int LARGURA_DIFICIL = 30;
+    public static final int ALTURA_DIFICIL = 16;
 
-    private static final int MINAS_FACIL = 10;
-    private static final int MINAS_MEDIO = 40;
-    private static final int MINAS_DIFICIL = 99;
+    public static final int MINAS_FACIL = 10;
+    public static final int MINAS_MEDIO = 40;
+    public static final int MINAS_DIFICIL = 99;
 
     private Tabuleiro tabuleiro;
     private int nivelAtual;
@@ -46,6 +45,8 @@ public class CampoMinado extends JFrame {
         }
         tabuleiro = new Tabuleiro(largura, altura, minas);
         add(tabuleiro);
+        pack(); // Ajusta o tamanho da janela conforme o tamanho do tabuleiro
+        setLocationRelativeTo(null); // Centraliza a janela na tela
         validate();
     }
 
