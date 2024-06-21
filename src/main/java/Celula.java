@@ -1,5 +1,4 @@
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,17 +9,19 @@ public class Celula extends JButton {
     private boolean temMina;
     private boolean marcada;
     private boolean aberta;
+    private MinaPainel painel;
     private Temporizador temporizador;
 
     private static final Icon ICON_MINA = new ImageIcon(Celula.class.getResource("/imgs/mine.png"));
     private static final Icon ICON_BANDEIRA = new ImageIcon(Celula.class.getResource("/imgs/flagged.png"));
 
-    public Celula(int linha, int coluna, Temporizador temporizador) {
+    public Celula(int linha, int coluna, MinaPainel painel, Temporizador temporizador) {
         this.linha = linha;
         this.coluna = coluna;
         this.temMina = false;
         this.marcada = false;
         this.aberta = false;
+        this.painel = painel;
         this.temporizador = temporizador;
 
         setFont(new Font("Arial", Font.BOLD, 20));
@@ -66,16 +67,7 @@ public class Celula extends JButton {
         setBackground(Color.RED);
         JOptionPane.showMessageDialog(this, "Você perdeu!");
         temporizador.stop();
-    }
-
-    private void reiniciar() {
-        temMina = false;
-        marcada = false;
-        aberta = false;
-        setIcon(null);
-        setBackground(Color.LIGHT_GRAY);
-        setEnabled(true);
-        temporizador.reset();
+        painel.notificarDerrota();
     }
 
     private void abrir() {
@@ -83,7 +75,6 @@ public class Celula extends JButton {
             aberta = true;
             if (temMina) {
                 derrota();
-                reiniciar();
             } else {
                 setBackground(Color.WHITE);
                 setEnabled(false);

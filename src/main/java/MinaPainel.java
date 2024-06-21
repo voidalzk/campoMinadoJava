@@ -1,8 +1,6 @@
 
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Random;
 
 public class MinaPainel extends JPanel {
@@ -10,11 +8,13 @@ public class MinaPainel extends JPanel {
     private int linhas;
     private int colunas;
     private int minas;
+    private Temporizador temporizador;
 
-    public MinaPainel(int linhas, int colunas, int minas) {
+    public MinaPainel(int linhas, int colunas, int minas, Temporizador temporizador) {
         this.linhas = linhas;
         this.colunas = colunas;
         this.minas = minas;
+        this.temporizador = temporizador;
         setLayout(new GridLayout(linhas, colunas));
         iniciarCampo();
     }
@@ -23,7 +23,7 @@ public class MinaPainel extends JPanel {
         celulas = new Celula[linhas][colunas];
         for (int i = 0; i < linhas; i++) {
             for (int j = 0; j < colunas; j++) {
-                celulas[i][j] = new Celula(i, j);
+                celulas[i][j] = new Celula(i, j, this, temporizador);
                 add(celulas[i][j]);
             }
         }
@@ -71,5 +71,18 @@ public class MinaPainel extends JPanel {
             }
         }
         return contador;
+    }
+
+    public void notificarDerrota() {
+        for (int i = 0; i < linhas; i++) {
+            for (int j = 0; j < colunas; j++) {
+                celulas[i][j].setEnabled(false);
+            }
+        }
+        temporizador.reset();
+        removeAll();
+        iniciarCampo();
+        revalidate();
+        repaint();
     }
 }
